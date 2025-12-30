@@ -11,9 +11,12 @@ export default function About() {
             <h2 className="text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight font-serif">
               Friseursalon für Frauen
             </h2>
+
             <p className="text-lg mb-10 text-gray-600 font-light leading-relaxed">
-              Von Frauen, für Frauen.
+              Von Frauen, für Frauen. Ein Ort für präzise Schnitte, gepflegte Farbe und Looks,
+              die nicht nur im Salon gut aussehen, sondern auch im Alltag funktionieren.
             </p>
+
 
             <div className="grid sm:grid-cols-2 gap-6">
               <div className="p-6 border border-gray-100 rounded-none">
@@ -22,8 +25,8 @@ export default function About() {
                   Friseurmeisterin und Inhaberin
                 </p>
                 <p className="text-gray-600 font-light leading-relaxed">
-                  Friseurmeisterin und Inhaberin des Friseurstudios Kristina & Alexandra Mastersalon.
-                  Ich freue mich darauf, euch in unserem Salon begrüßen zu dürfen.
+                  Meisterhafte Friseurkunst mit Blick fürs Detail. Kristina steht für saubere Linien,
+                  harmonische Proportionen und ein Ergebnis, das zu Gesicht, Haarstruktur und Stil passt.
                 </p>
               </div>
 
@@ -33,10 +36,11 @@ export default function About() {
                   Friseurmeisterin und Inhaberin
                 </p>
                 <p className="text-gray-600 font-light leading-relaxed">
-                  Friseurmeisterin und Inhaberin des Friseurstudios Kristina & Alexandra Mastersalon.
-                  Ich freue mich darauf, euch in unserem Salon begrüßen zu dürfen.
+                  Leidenschaft für moderne Looks und präzise Ausarbeitung. Alexandra legt Wert auf
+                  individuelle Beratung und ein Finish, das lange schön bleibt.
                 </p>
               </div>
+
             </div>
           </div>
 

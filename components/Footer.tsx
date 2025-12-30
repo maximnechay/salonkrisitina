@@ -21,7 +21,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <h3 className="text-2xl mb-6 font-semibold text-white font-serif">
-              HARMONIE
+              Kristina & Alexandra
             </h3>
             <p className="text-sm font-light leading-relaxed text-gray-400">
               Ihr Premium Beautysalon für zeitlose Schönheit im Herzen von Hannover.

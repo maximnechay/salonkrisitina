@@ -46,7 +46,7 @@ const priceCategories = [
   },
   {
     title: 'Balayage',
-    subtitle: 'inkl. Aufhellen, Root Shadow, Glossing, Pflege, Schnitt & Styling',
+    subtitle: 'inkl. Aufhellen, Glossing, Schnitt & Styling',
     items: [
       { name: 'Balayage (S)', price: 'ab 360€' },
       { name: 'Balayage (M)', price: 'ab 390€' },
@@ -69,29 +69,36 @@ const priceCategories = [
 
 export default function Prices() {
   return (
-    <section id="preise" className="py-24 md:py-32 bg-white">
+    <section id="preise" className="py-16 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="max-w-3xl mb-20">
-          <div className="deco-line mb-8" />
-          <h2 className="text-4xl md:text-5xl lg:text-6xl mb-6 font-serif">Preisliste</h2>
-          <p className="text-xl text-gray-600 font-light">
-            Transparente Preise für erstklassige Dienstleistungen. Alle Preise verstehen sich als Startpreise
-            und können je nach Aufwand variieren.
+        <div className="max-w-3xl mb-10">
+          <div className="deco-line mb-6" />
+          <h2 className="text-3xl md:text-4xl lg:text-5xl mb-4 font-serif">Preisliste</h2>
+          <p className="text-base text-gray-600 font-light">
+            Transparente Preise für erstklassige Dienstleistungen.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {priceCategories.map((category) => (
-            <div key={category.title} className="price-table">
-              <div className="price-header">
-                <h3 className="text-2xl font-semibold mb-2 font-serif">{category.title}</h3>
-                <p className="text-sm text-gray-600 font-light">{category.subtitle}</p>
+            <div
+              key={category.title}
+              className="border border-secondary/15 bg-white rounded overflow-hidden"
+            >
+              <div className="px-4 py-3 border-b border-secondary/15 bg-light">
+                <h3 className="text-base font-semibold font-serif">{category.title}</h3>
+                <p className="text-xs text-gray-500 font-light">{category.subtitle}</p>
               </div>
               <div>
                 {category.items.map((item) => (
-                  <div key={item.name} className="price-item">
-                    <span className="text-base font-normal text-primary">{item.name}</span>
-                    <span className="text-base font-semibold text-secondary font-serif">{item.price}</span>
+                  <div
+                    key={item.name}
+                    className="flex justify-between items-center px-4 py-2 border-b border-secondary/10 last:border-b-0 hover:bg-light/50 transition-colors"
+                  >
+                    <span className="text-sm text-primary pr-2">{item.name}</span>
+                    <span className="text-sm font-semibold text-secondary font-serif whitespace-nowrap">
+                      {item.price}
+                    </span>
                   </div>
                 ))}
               </div>
