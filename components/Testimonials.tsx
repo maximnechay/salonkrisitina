@@ -44,10 +44,12 @@ export default function Testimonials() {
 
               {/* Всегда внизу карточки */}
               <div className="mt-auto">
-                <div className="text-sm font-semibold tracking-wide uppercase text-accent">
+                {/* ✅ FIX: text-primary вместо text-accent для лучшего контраста */}
+                <div className="text-sm font-semibold tracking-wide uppercase text-primary">
                   {t.author}
                 </div>
-                <div className="text-xs text-gray-500 mt-1">
+                {/* ✅ FIX: text-gray-600 вместо text-gray-500 */}
+                <div className="text-xs text-gray-600 mt-1">
                   {t.source}
                 </div>
               </div>
