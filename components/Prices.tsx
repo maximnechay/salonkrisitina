@@ -79,29 +79,36 @@ export default function Prices() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {priceCategories.map((category) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {priceCategories.map((cat) => (
             <div
-              key={category.title}
+              key={cat.title}
               className="border border-secondary/15 bg-white rounded overflow-hidden"
             >
+              {/* Header */}
               <div className="px-4 py-3 border-b border-secondary/15 bg-light">
-                <h3 className="text-base font-semibold font-serif">{category.title}</h3>
-                <p className="text-xs text-gray-500 font-light">{category.subtitle}</p>
+                <h3 className="text-base font-semibold text-primary font-serif">
+                  {cat.title}
+                </h3>
+                {/* ✅ FIX: text-gray-600 вместо text-gray-500 для лучшего контраста */}
+                <p className="text-xs text-gray-600 font-light">{cat.subtitle}</p>
               </div>
-              <div>
-                {category.items.map((item) => (
-                  <div
+
+              {/* Items */}
+              <ul className="divide-y divide-secondary/10">
+                {cat.items.map((item) => (
+                  <li
                     key={item.name}
-                    className="flex justify-between items-center px-4 py-2 border-b border-secondary/10 last:border-b-0 hover:bg-light/50 transition-colors"
+                    className="flex items-center justify-between px-4 py-2.5 text-sm"
                   >
-                    <span className="text-sm text-primary pr-2">{item.name}</span>
-                    <span className="text-sm font-semibold text-secondary font-serif whitespace-nowrap">
+                    <span className="text-gray-700 font-light pr-2">{item.name}</span>
+                    {/* ✅ FIX: text-secondary-dark для лучшего контраста цен */}
+                    <span className="text-sm font-semibold text-secondary-dark font-serif whitespace-nowrap">
                       {item.price}
                     </span>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           ))}
         </div>
