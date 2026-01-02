@@ -75,37 +75,54 @@ export default function BookingForm() {
 
       <form onSubmit={handleSubmit} className="space-y-8">
         <div>
+          <label htmlFor="name" className="sr-only">Ihr Name</label>
           <input
+            id="name"
             type="text"
             name="name"
             placeholder="Ihr Name"
             className="input-luxury"
             required
+            autoComplete="name"
           />
         </div>
 
         <div>
+          <label htmlFor="email" className="sr-only">E-Mail Adresse</label>
           <input
+            id="email"
             type="email"
             name="email"
             placeholder="E-Mail Adresse"
             className="input-luxury"
             required
+            autoComplete="email"
           />
         </div>
 
         <div>
+          <label htmlFor="phone" className="sr-only">Telefonnummer</label>
           <input
+            id="phone"
             type="tel"
             name="phone"
             placeholder="Telefonnummer"
             className="input-luxury"
             required
+            autoComplete="tel"
           />
         </div>
 
         <div>
-          <select name="service" className="input-luxury" required>
+          {/* ✅ FIX: Добавлен label для screen readers */}
+          <label htmlFor="service" className="sr-only">Gewünschte Leistung</label>
+          <select
+            id="service"
+            name="service"
+            className="input-luxury"
+            required
+            aria-label="Gewünschte Leistung auswählen"
+          >
             {services.map((service) => (
               <option key={service.value} value={service.value}>
                 {service.label}
@@ -115,7 +132,9 @@ export default function BookingForm() {
         </div>
 
         <div>
+          <label htmlFor="message" className="sr-only">Ihre Nachricht</label>
           <textarea
+            id="message"
             name="message"
             placeholder="Ihre Nachricht"
             rows={4}
@@ -125,8 +144,10 @@ export default function BookingForm() {
 
         {message && (
           <div
+            role="status"
+            aria-live="polite"
             className={`text-sm ${status === 'success' ? 'text-green-600' :
-                status === 'error' ? 'text-red-600' : 'text-gray-600'
+              status === 'error' ? 'text-red-600' : 'text-gray-600'
               }`}
           >
             {message}
@@ -137,6 +158,7 @@ export default function BookingForm() {
           type="submit"
           className="btn-luxury btn-luxury-filled w-full"
           disabled={status === 'loading'}
+          aria-busy={status === 'loading'}
         >
           {status === 'loading' ? 'Wird gesendet...' : 'Anfrage senden'}
         </button>
