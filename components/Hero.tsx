@@ -49,7 +49,7 @@ export default function Hero() {
           loop
           playsInline
           preload="metadata"
-          poster="/images/hero-poster.jpg"
+          poster="/images/hero-poster.webp"
           className="absolute h-full w-full object-cover will-change-transform"
         >
           <source src="/videos/hero.mp4" type="video/mp4" />
