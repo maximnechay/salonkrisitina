@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import "./globals.css"
 import { Inter, Cormorant_Garamond } from "next/font/google"
+import { CookieProvider, CookieBanner } from "@/components/CookieConsent"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -109,7 +110,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className="antialiased font-sans">{children}</body>
+      <body className="antialiased font-sans">
+        <CookieProvider>
+          {children}
+          <CookieBanner />
+        </CookieProvider>
+      </body>
     </html>
   )
 }
