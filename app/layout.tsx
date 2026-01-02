@@ -13,8 +13,8 @@ const brandSerif = Cormorant_Garamond({
   variable: "--font-brand",
 })
 
-const SITE_URL = "https://mastersalon.vercel.app" // поменяй на свой домен
-const BRAND = "Kristina & Alexandra MASTERSALON"
+const SITE_URL = "https://kristinaalexandramastersalon.vercel.app"
+const BRAND = "Kristina & Alexandra Mastersalon"
 const CITY = "Gifhorn"
 
 export const metadata: Metadata = {
@@ -23,13 +23,15 @@ export const metadata: Metadata = {
     default: `${BRAND} | Friseurmeisterinnen in ${CITY}`,
     template: `%s | ${BRAND}`,
   },
-  description: `${BRAND} in ${CITY} – Damenfriseur, Haarschnitte, Colorationen, Balayage, Highlights, Styling. Meisterqualität, individuelle Beratung, saubere Ergebnisse. Jetzt Termin vereinbaren.`,
+  description:
+    `${BRAND} in ${CITY} – Haarschnitte, Colorationen, Balayage, Highlights, Styling. Meisterqualität, individuelle Beratung, saubere Ergebnisse. Jetzt Termin vereinbaren.`,
   keywords: [
     `Friseur ${CITY}`,
     `Damenfriseur ${CITY}`,
     `Friseurmeisterin ${CITY}`,
     "Haarschnitt",
     "Farbe",
+    "Coloration",
     "Balayage",
     "Strähnen",
     "Highlights",
@@ -39,75 +41,53 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: BRAND }],
   robots: { index: true, follow: true },
+
   openGraph: {
     type: "website",
     locale: "de_DE",
     url: SITE_URL,
     siteName: BRAND,
     title: `${BRAND} | Friseurmeisterinnen in ${CITY}`,
-    description: `${BRAND} in ${CITY} – Haarschnitte, Farbe, Balayage, Styling. Jetzt Termin buchen.`,
+    description: `${BRAND} in ${CITY} – Haarschnitte, Farbe, Balayage, Styling. Jetzt Termin anfragen.`,
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: "/images/og-image.png",
         width: 1200,
         height: 630,
         alt: `${BRAND} ${CITY}`,
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
     title: `${BRAND} | Friseurmeisterinnen in ${CITY}`,
     description: `Damenfriseur in ${CITY}: Haarschnitt, Farbe, Balayage, Styling.`,
-    images: ["/images/og-image.jpg"],
+    images: ["/images/og-image.png"],
   },
+
   alternates: { canonical: SITE_URL },
 }
 
-// Schema.org structured data
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "HairSalon",
   name: BRAND,
-  image: `${SITE_URL}/images/og-image.jpg`,
+  image: `${SITE_URL}/images/og-image.png`,
   description: `${BRAND} in ${CITY} – Friseurmeisterinnen für Haarschnitt, Farbe, Balayage und Styling.`,
   url: SITE_URL,
-  telephone: "+49-XXX-XXXXXXX", // TODO
-  email: "info@mastersalon.de", // TODO
-  priceRange: "€€",
+  telephone: ["+49 176 412 901 58", "+49 173 175 8457"],
+  email: "john_lidia@gmx.de",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "STRAßE 1", // TODO
+    streetAddress: "Limbergstraße 53",
     addressLocality: CITY,
     addressRegion: "Niedersachsen",
-    postalCode: "38518", // TODO (поставь свой)
+    postalCode: "38518",
     addressCountry: "DE",
   },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 52.48, // TODO
-    longitude: 10.55, // TODO
-  },
-  areaServed: {
-    "@type": "City",
-    name: CITY,
-  },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "09:00",
-      closes: "18:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Saturday"],
-      opens: "09:00",
-      closes: "14:00",
-    },
-  ],
   sameAs: [
-    "https://instagram.com/kristinaalexandra25", // если другой - поменяй
+    "https://instagram.com/kristinaalexandra25",
   ],
 }
 
@@ -115,9 +95,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="de" className={`${inter.variable} ${brandSerif.variable}`}>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        {/* favicons */}
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="K&A" />
+        <link rel="manifest" href="/site.webmanifest" />
+
+        {/* schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
