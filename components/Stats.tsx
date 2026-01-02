@@ -1,8 +1,8 @@
 const stats = [
   { number: '12+', label: 'Jahre Erfahrung' },
-  { number: '8', label: 'Meister-Stylisten' },
+  { number: '2', label: 'Meister-Stylisten' },
   { number: '2.5K+', label: 'Zufriedene Kunden' },
-  { number: '4.8', label: 'Durchschnittsbewertung' },
+  { number: '5.0', label: 'Durchschnittsbewertung' },
 ]
 
 export default function Stats() {

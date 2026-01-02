@@ -3,7 +3,7 @@
 export default function WhatsAppButton() {
   return (
     <a
-      href="https://wa.me/49511123456?text=Hallo!%20Ich%20m%C3%B6chte%20gerne%20einen%20Termin%20vereinbaren."
+      href="https://wa.me/491731758457?text=Hallo!%20Ich%20m%C3%B6chte%20gerne%20einen%20Termin%20vereinbaren."
       target="_blank"
       rel="noopener noreferrer"
       className="whatsapp-float"

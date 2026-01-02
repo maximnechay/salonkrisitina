@@ -5,13 +5,15 @@ import { supabase, SUPABASE_FUNCTIONS_URL } from '@/lib/supabase'
 
 const services = [
   { value: '', label: 'Gewünschte Leistung' },
-  { value: 'Friseur', label: 'Friseur' },
-  { value: 'Nail Design', label: 'Nail Design' },
-  { value: 'Kosmetik', label: 'Kosmetik' },
-  { value: 'Augen', label: 'Augenbrauen & Wimpern' },
-  { value: 'SPA', label: 'Wellness & SPA' },
-  { value: 'Make-up', label: 'Make-up' },
+  { value: 'Haarschnitt', label: 'Haarschnitt' },
+  { value: 'Farbe', label: 'Farbe' },
+  { value: 'Strähnen', label: 'Strähnen / Highlights' },
+  { value: 'Balayage', label: 'Balayage' },
+  { value: 'Tönung', label: 'Tönung / Glossing' },
+  { value: 'Styling', label: 'Styling / Föhnen' },
+  { value: 'Pflege', label: 'Pflege / Treatment' },
 ]
+
 
 export default function BookingForm() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
@@ -59,7 +61,7 @@ export default function BookingForm() {
 
       setStatus('success')
       setMessage('Vielen Dank! Ihre Anfrage wurde gesendet.')
-      ;(e.target as HTMLFormElement).reset()
+        ; (e.target as HTMLFormElement).reset()
     } catch (err) {
       console.error('Unexpected error:', err)
       setStatus('error')
@@ -70,7 +72,7 @@ export default function BookingForm() {
   return (
     <div className="bg-light p-8 md:p-12 lg:p-16">
       <h3 className="text-3xl mb-8 font-semibold font-serif">Termin anfragen</h3>
-      
+
       <form onSubmit={handleSubmit} className="space-y-8">
         <div>
           <input
@@ -81,7 +83,7 @@ export default function BookingForm() {
             required
           />
         </div>
-        
+
         <div>
           <input
             type="email"
@@ -91,7 +93,7 @@ export default function BookingForm() {
             required
           />
         </div>
-        
+
         <div>
           <input
             type="tel"
@@ -101,7 +103,7 @@ export default function BookingForm() {
             required
           />
         </div>
-        
+
         <div>
           <select name="service" className="input-luxury" required>
             {services.map((service) => (
@@ -111,7 +113,7 @@ export default function BookingForm() {
             ))}
           </select>
         </div>
-        
+
         <div>
           <textarea
             name="message"
@@ -123,10 +125,9 @@ export default function BookingForm() {
 
         {message && (
           <div
-            className={`text-sm ${
-              status === 'success' ? 'text-green-600' : 
-              status === 'error' ? 'text-red-600' : 'text-gray-600'
-            }`}
+            className={`text-sm ${status === 'success' ? 'text-green-600' :
+                status === 'error' ? 'text-red-600' : 'text-gray-600'
+              }`}
           >
             {message}
           </div>

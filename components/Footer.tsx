@@ -1,16 +1,17 @@
-import Link from 'next/link'
+import Link from "next/link"
+import Image from "next/image"
 
 const navigation = [
-  { href: '#leistungen', label: 'Leistungen' },
-  { href: '#preise', label: 'Preise' },
-  { href: '#galerie', label: 'Galerie' },
-  { href: '#kontakt', label: 'Kontakt' },
+  { href: "#leistungen", label: "Leistungen" },
+  { href: "#preise", label: "Preise" },
+  { href: "#galerie", label: "Galerie" },
+  { href: "#kontakt", label: "Kontakt" },
 ]
 
 const legalLinks = [
-  { href: '/datenschutz', label: 'Datenschutz' },
-  { href: '/impressum', label: 'Impressum' },
-  { href: '/agb', label: 'AGB' },
+  { href: "/datenschutz", label: "Datenschutz" },
+  { href: "/impressum", label: "Impressum" },
+  { href: "/agb", label: "AGB" },
 ]
 
 export default function Footer() {
@@ -20,11 +21,23 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl mb-6 font-semibold text-white font-serif">
-              Kristina & Alexandra
-            </h3>
+            <div className="mb-6 flex flex-col items-start">
+              <Image
+                src="/brand/ka.png"
+                alt="KA"
+                width={220}
+                height={220}
+                className="h-12 w-auto object-contain mb-3"
+                priority
+              />
+
+              <h3 className="text-2xl font-semibold text-white font-serif leading-none whitespace-nowrap">
+                Kristina & Alexandra
+              </h3>
+            </div>
+
             <p className="text-sm font-light leading-relaxed text-gray-400">
-              Ihr Premium Beautysalon für zeitlose Schönheit im Herzen von Hannover.
+              Ihr Premium Beautysalon für zeitlose Schönheit im Herzen von Gifhorn.
             </p>
           </div>
 
@@ -53,17 +66,26 @@ export default function Footer() {
             </h4>
             <address className="not-italic space-y-3 text-sm font-light text-gray-400">
               <p>
-                Musterstraße 10<br />
-                30159 Hannover
+                Limbergstraße 53
+                <br />
+                38518 Gifhorn
               </p>
+
               <p>
-                <a href="tel:+49511123456" className="hover:text-white transition">
-                  +49 (511) 123-456
+                <a href="tel:+491731758457" className="hover:text-white transition">
+                  +49 (173) 175-8457
                 </a>
               </p>
+
               <p>
-                <a href="mailto:info@harmonie-salon.de" className="hover:text-white transition">
-                  info@harmonie-salon.de
+                <a href="tel:+4917641290158" className="hover:text-white transition">
+                  +49 (176) 412-90158
+                </a>
+              </p>
+
+              <p>
+                <a href="mailto:john_lidia@gmx.de" className="hover:text-white transition">
+                  john_lidia@gmx.de
                 </a>
               </p>
             </address>
@@ -83,7 +105,8 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm font-light text-gray-500">
-          <p>© {new Date().getFullYear()} Beautysalon Harmonie. Alle Rechte vorbehalten.</p>
+          <p>© {new Date().getFullYear()} Kristina & Alexandra. Alle Rechte vorbehalten.</p>
+
           <div className="flex space-x-6 mt-4 md:mt-0">
             {legalLinks.map((link) => (
               <Link

@@ -1,22 +1,22 @@
-import { Metadata } from 'next'
-import LegalLayout from '@/components/LegalLayout'
+import type { Metadata } from "next"
+import LegalLayout from "@/components/LegalLayout"
 
 export const metadata: Metadata = {
-  title: 'AGB',
+  title: "AGB",
   robots: { index: false, follow: false },
 }
 
 export default function AGB() {
   return (
     <LegalLayout title="Allgemeine Geschäftsbedingungen">
-      <p className="mb-6 text-sm text-gray-600">Stand: Januar 2025</p>
+      <p className="mb-6 text-sm text-gray-600">Stand: Januar 2026</p>
 
       <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 font-serif">
         § 1 Geltungsbereich
       </h2>
       <p className="mb-4">
         (1) Diese Allgemeinen Geschäftsbedingungen (nachfolgend &quot;AGB&quot;) gelten für alle Dienstleistungen, die
-        der Beautysalon Harmonie (nachfolgend &quot;Salon&quot;) gegenüber seinen Kunden erbringt.
+        Kristina &amp; Alexandra Mastersalon (nachfolgend &quot;Salon&quot;) gegenüber seinen Kunden erbringt.
       </p>
       <p className="mb-4">
         (2) Abweichende Bedingungen des Kunden werden nicht anerkannt, es sei denn, der Salon stimmt ihrer
@@ -31,7 +31,7 @@ export default function AGB() {
         § 2 Terminvereinbarung und Buchung
       </h2>
       <p className="mb-4">
-        (1) Termine können telefonisch, per E-Mail, über das Online-Buchungssystem oder persönlich im Salon
+        (1) Termine können telefonisch, per E-Mail, über ein Online-Buchungssystem oder persönlich im Salon
         vereinbart werden.
       </p>
       <p className="mb-4">
@@ -63,8 +63,8 @@ export default function AGB() {
         Termine nur noch gegen Vorauszahlung zu vereinbaren.
       </p>
       <p className="mb-6">
-        (4) Der Salon behält sich das Recht vor, Termine aus wichtigem Grund (z.B. Krankheit des
-        Mitarbeiters) abzusagen. In diesem Fall wird dem Kunden unverzüglich ein Alternativtermin angeboten.
+        (4) Der Salon behält sich das Recht vor, Termine aus wichtigem Grund (z.B. Krankheit) abzusagen. In
+        diesem Fall wird dem Kunden unverzüglich ein Alternativtermin angeboten.
       </p>
 
       <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 font-serif">
@@ -74,11 +74,12 @@ export default function AGB() {
         (1) Es gelten die am Tag der Terminvereinbarung aktuellen Preise laut Preisliste des Salons.
       </p>
       <p className="mb-4">
-        (2) Alle Preise verstehen sich als Endpreise inklusive der gesetzlichen Mehrwertsteuer.
+        (2) Alle Preise verstehen sich als Endpreise. Gemäß § 19 UStG (Kleinunternehmerregelung) wird keine
+        Umsatzsteuer ausgewiesen.
       </p>
       <p className="mb-4">
-        (3) Die Zahlung erfolgt unmittelbar nach Erbringung der Dienstleistung. Akzeptiert werden
-        Barzahlung, EC-Karte und gängige Kreditkarten.
+        (3) Die Zahlung erfolgt unmittelbar nach Erbringung der Dienstleistung. Akzeptiert werden Barzahlung
+        und EC-Karte (weitere Zahlungsarten nach Absprache).
       </p>
       <p className="mb-4">
         (4) Der Salon behält sich das Recht vor, die Preise anzupassen. Bereits vereinbarte Termine sind von
@@ -106,8 +107,8 @@ export default function AGB() {
       </p>
       <p className="mb-6">
         (4) Besondere Wünsche des Kunden werden nach Möglichkeit berücksichtigt. Der Salon behält sich
-        jedoch das Recht vor, bestimmte Behandlungen oder Farben abzulehnen, wenn diese nach professioneller
-        Einschätzung nicht zum gewünschten Ergebnis führen oder schädlich sein könnten.
+        jedoch das Recht vor, bestimmte Behandlungen oder Farbdienstleistungen abzulehnen, wenn diese nach
+        professioneller Einschätzung nicht zum gewünschten Ergebnis führen oder schädlich sein könnten.
       </p>
 
       <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 font-serif">
@@ -207,23 +208,29 @@ export default function AGB() {
         (1) Es gilt ausschließlich das Recht der Bundesrepublik Deutschland.
       </p>
       <p className="mb-6">
-        (2) Gerichtsstand ist Hannover, sofern der Kunde Kaufmann, juristische Person des öffentlichen
-        Rechts oder öffentlich-rechtliches Sondervermögen ist.
+        (2) Für Verbraucher gilt der gesetzliche Gerichtsstand. Ist der Kunde Kaufmann, juristische Person
+        des öffentlichen Rechts oder öffentlich-rechtliches Sondervermögen, ist Gerichtsstand Gifhorn.
       </p>
 
       <div className="bg-gray-50 p-6 rounded-lg mt-8">
         <p className="text-sm font-semibold mb-2">Kontakt:</p>
-        <p className="text-sm mb-2">Beautysalon Harmonie</p>
-        <p className="text-sm mb-2">Musterstraße 10, 30159 Hannover</p>
-        <p className="text-sm mb-2">Telefon: +49 (511) 123-456</p>
-        <p className="text-sm">E-Mail: info@harmonie-salon.de</p>
-      </div>
-
-      <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mt-8">
-        <p className="text-sm text-gray-700">
-          <strong>Hinweis:</strong> Diese AGB sind ein Basistemplate für einen Beautysalon. Bitte passen
-          Sie diese an Ihre spezifischen Geschäftsbedingungen an. Es wird empfohlen, die AGB von einem
-          Rechtsanwalt prüfen zu lassen.
+        <p className="text-sm mb-2">Kristina &amp; Alexandra Mastersalon</p>
+        <p className="text-sm mb-2">Limbergstraße 53, 38518 Gifhorn</p>
+        <p className="text-sm mb-2">
+          Telefon:{" "}
+          <a className="hover:underline" href="tel:+4917641290158">
+            +49 176 412 901 58
+          </a>
+          {", "}
+          <a className="hover:underline" href="tel:+491731758457">
+            +49 173 175 8457
+          </a>
+        </p>
+        <p className="text-sm">
+          E-Mail:{" "}
+          <a className="hover:underline" href="mailto:john_lidia@gmx.de">
+            john_lidia@gmx.de
+          </a>
         </p>
       </div>
     </LegalLayout>
