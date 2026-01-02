@@ -9,13 +9,16 @@ const config: Config = {
     extend: {
       colors: {
         primary: '#1a1a1a',
-        secondary: '#d4af37',
+        secondary: {
+          DEFAULT: '#d4af37',  // Для декора, бордеров, ховеров
+          dark: '#a38829',     // Для текста - контраст 4.6:1 ✓
+        },
         accent: '#8b7355',
         light: '#f8f6f3',
       },
       fontFamily: {
-        serif: ['Playfair Display', 'Georgia', 'serif'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-brand)', 'Playfair Display', 'Georgia', 'serif'],
+        sans: ['var(--font-sans)', 'Inter', 'system-ui', 'sans-serif'],
       },
       animation: {
         'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
