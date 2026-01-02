@@ -1,5 +1,8 @@
+'use client'
+
 import BookingForm from './BookingForm'
 import { MapPin, Phone, Mail, Clock } from 'lucide-react'
+import { useCookieConsent } from './CookieConsent'
 
 const contactInfo = [
   {
@@ -56,6 +59,64 @@ const contactInfo = [
   },
 ]
 
+function GoogleMap() {
+  const { consent, openSettings } = useCookieConsent()
+
+  // Если согласие ещё не загружено — показываем заглушку
+  if (consent === null) {
+    return (
+      <div className="bg-gray-100 h-[450px] rounded-lg flex items-center justify-center">
+        <div className="animate-pulse text-gray-400">Laden...</div>
+      </div>
+    )
+  }
+
+  // Если нет согласия на карты — показываем placeholder
+  if (!consent.maps) {
+    return (
+      <div className="bg-gray-100 h-[450px] rounded-lg flex flex-col items-center justify-center text-center px-6">
+        <MapPin className="w-12 h-12 text-gray-400 mb-4" />
+        <h4 className="text-lg font-medium text-gray-700 mb-2">
+          Google Maps blockiert
+        </h4>
+        <p className="text-gray-500 text-sm mb-6 max-w-md">
+          Um die interaktive Karte zu sehen, müssen Sie der Nutzung von
+          Google Maps in den Cookie-Einstellungen zustimmen.
+        </p>
+        <button
+          onClick={openSettings}
+          className="px-6 py-2.5 bg-secondary text-white text-sm font-medium rounded-lg hover:bg-secondary/90 transition"
+        >
+          Cookie-Einstellungen öffnen
+        </button>
+        <a
+          href="https://www.google.com/maps/dir/?api=1&destination=Limbergstra%C3%9Fe+53,38518+Gifhorn"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 text-sm text-secondary hover:underline"
+        >
+          Alternativ: Route in Google Maps öffnen →
+        </a>
+      </div>
+    )
+  }
+
+  // Согласие есть — показываем карту
+  return (
+    <iframe
+      src="https://www.google.com/maps?q=Limbergstra%C3%9Fe%2053%2C%2038518%20Gifhorn&output=embed"
+      width="100%"
+      height="450"
+      style={{ border: 0 }}
+      allowFullScreen
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+      title="Standort von Kristina & Alexandra Mastersalon in Gifhorn"
+      className="rounded-lg"
+    />
+  )
+}
+
 export default function Contact() {
   return (
     <section id="kontakt" className="py-24 md:py-32 bg-white">
@@ -89,16 +150,7 @@ export default function Contact() {
           <h3 className="text-3xl mb-8 font-semibold font-serif">So finden Sie uns</h3>
 
           <div className="relative overflow-hidden rounded-lg shadow-lg">
-            <iframe
-              src="https://www.google.com/maps?q=Limbergstra%C3%9Fe%2053%2C%2038518%20Gifhorn&output=embed"
-              width="100%"
-              height="450"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Standort von Kristina & Alexandra Mastersalon in Gifhorn"
-            />
+            <GoogleMap />
           </div>
 
           <div className="mt-6 text-center">
