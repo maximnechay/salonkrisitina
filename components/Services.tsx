@@ -68,7 +68,8 @@ export default function Services() {
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-secondary/20">
         {services.map((service) => (
           <div key={service.number} className="service-card-luxury">
-            <div className="text-sm font-light tracking-widest text-secondary mb-6">
+            {/* ✅ FIX: text-secondary-dark вместо text-secondary для лучшего контраста */}
+            <div className="text-sm font-light tracking-widest text-secondary-dark mb-6">
               {service.number}
             </div>
             <h3 className="text-2xl md:text-3xl font-semibold mb-5 text-primary font-serif">
