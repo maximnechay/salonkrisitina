@@ -66,7 +66,7 @@ function GoogleMap() {
   if (consent === null) {
     return (
       <div className="bg-gray-100 h-[450px] rounded-lg flex items-center justify-center">
-        <div className="animate-pulse text-gray-400">Laden...</div>
+        <div className="animate-pulse text-gray-500">Laden...</div>
       </div>
     )
   }
@@ -79,21 +79,22 @@ function GoogleMap() {
         <h4 className="text-lg font-medium text-gray-700 mb-2">
           Google Maps blockiert
         </h4>
-        <p className="text-gray-500 text-sm mb-6 max-w-md">
+        <p className="text-gray-600 text-sm mb-6 max-w-md">
           Um die interaktive Karte zu sehen, müssen Sie der Nutzung von
           Google Maps in den Cookie-Einstellungen zustimmen.
         </p>
         <button
           onClick={openSettings}
-          className="px-6 py-2.5 bg-secondary text-white text-sm font-medium rounded-lg hover:bg-secondary/90 transition"
+          className="px-6 py-2.5 bg-secondary text-primary text-sm font-medium rounded-lg hover:bg-secondary/90 transition"
         >
           Cookie-Einstellungen öffnen
         </button>
+        {/* ✅ FIX: underline добавлен для различимости ссылки не только по цвету */}
         <a
           href="https://www.google.com/maps/dir/?api=1&destination=Limbergstra%C3%9Fe+53,38518+Gifhorn"
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-4 text-sm text-secondary hover:underline"
+          className="mt-4 text-sm text-secondary-dark underline hover:no-underline"
         >
           Alternativ: Route in Google Maps öffnen →
         </a>
@@ -130,7 +131,8 @@ export default function Contact() {
             <div className="space-y-10">
               {contactInfo.map((info) => (
                 <div key={info.label}>
-                  <div className="text-sm uppercase tracking-wider mb-3 text-secondary flex items-center gap-2">
+                  {/* ✅ FIX: text-secondary-dark для лучшего контраста */}
+                  <div className="text-sm uppercase tracking-wider mb-3 text-secondary-dark flex items-center gap-2">
                     <info.icon className="w-4 h-4" />
                     {info.label}
                   </div>
@@ -154,11 +156,12 @@ export default function Contact() {
           </div>
 
           <div className="mt-6 text-center">
+            {/* ✅ FIX: underline для различимости ссылки */}
             <a
               href="https://www.google.com/maps/dir/?api=1&destination=Limbergstra%C3%9Fe+53,38518+Gifhorn"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center text-sm font-medium text-secondary hover:underline"
+              className="inline-flex items-center text-sm font-medium text-secondary-dark underline hover:no-underline"
             >
               <MapPin className="w-5 h-5 mr-2" />
               Route in Google Maps öffnen
