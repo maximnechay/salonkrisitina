@@ -26,6 +26,17 @@ export default function BookingForm() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
+    const formData = new FormData(e.currentTarget)
+
+    // 🍯 Honeypot check - if filled, it's a bot
+    const honeypot = formData.get('website') as string
+    if (honeypot) {
+      // Fake success to not alert the bot
+      setStatus('success')
+      setMessage('Vielen Dank! Ihre Anfrage wurde gesendet.')
+      return
+    }
+
     if (!consent) {
       setStatus('error')
       setMessage('Bitte stimmen Sie der Datenschutzerklärung zu.')
@@ -35,7 +46,6 @@ export default function BookingForm() {
     setStatus('loading')
     setMessage('Anfrage wird gesendet...')
 
-    const formData = new FormData(e.currentTarget)
     const payload = {
       name: formData.get('name') as string,
       email: formData.get('email') as string,
@@ -86,6 +96,18 @@ export default function BookingForm() {
       <h3 className="text-3xl mb-8 font-semibold font-serif">Termin anfragen</h3>
 
       <form onSubmit={handleSubmit} className="space-y-8">
+        {/* 🍯 Honeypot field - hidden from humans, visible to bots */}
+        <div className="absolute opacity-0 pointer-events-none" aria-hidden="true">
+          <label htmlFor="website">Website</label>
+          <input
+            type="text"
+            id="website"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+          />
+        </div>
+
         <div>
           <label htmlFor="name" className="sr-only">Ihr Name</label>
           <input
@@ -167,7 +189,8 @@ export default function BookingForm() {
             <Link href="/datenschutz" className="text-secondary-dark underline hover:no-underline" target="_blank">
               Datenschutzerklärung
             </Link>{' '}
-            gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage zu. *
+            gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage zu.
+            *
           </label>
         </div>
 
@@ -176,7 +199,7 @@ export default function BookingForm() {
             role="status"
             aria-live="polite"
             className={`text-sm ${status === 'success' ? 'text-green-600' :
-                status === 'error' ? 'text-red-600' : 'text-gray-600'
+              status === 'error' ? 'text-red-600' : 'text-gray-600'
               }`}
           >
             {message}
