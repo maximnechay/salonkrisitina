@@ -72,14 +72,16 @@ export default function Footer() {
               </p>
 
               <p>
-                <a href="tel:+491731758457" className="hover:text-white transition">
-                  +49 (173) 175-8457
+                <span className="text-gray-300">Kristina: </span>
+                <a href="tel:+4917641290158" className="hover:text-white transition">
+                  +49 176 412 901 58
                 </a>
               </p>
 
               <p>
-                <a href="tel:+4917641290158" className="hover:text-white transition">
-                  +49 (176) 412-90158
+                <span className="text-gray-300">Alexandra: </span>
+                <a href="tel:+491731758457" className="hover:text-white transition">
+                  +49 173 175 8457
                 </a>
               </p>
 

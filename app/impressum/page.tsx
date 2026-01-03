@@ -21,15 +21,20 @@ export default function Impressum() {
         <p className="mb-4">38518 Gifhorn</p>
 
         <p className="mb-2">
-          <strong>Geschäftsführer:</strong> Kristina Herold, Alexandra Saltürk
+          <strong>Inhaberinnen:</strong> Kristina Herold, Alexandra Saltürk
         </p>
 
         <p className="mb-2">
-          <strong>Telefon:</strong>{" "}
+          <strong>Telefon:</strong>
+        </p>
+        <p className="mb-1 pl-4">
+          Kristina:{" "}
           <a href="tel:+4917641290158" className="text-blue-600 hover:underline">
             +49 176 412 901 58
           </a>
-          {", "}
+        </p>
+        <p className="mb-4 pl-4">
+          Alexandra:{" "}
           <a href="tel:+491731758457" className="text-blue-600 hover:underline">
             +49 173 175 8457
           </a>

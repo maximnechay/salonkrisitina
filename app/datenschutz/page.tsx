@@ -59,24 +59,24 @@ export default function Datenschutz() {
       <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 font-serif">
         2. Hosting
       </h2>
-      <p className="mb-4">
-        Wir hosten die Inhalte unserer Website bei folgendem Anbieter:
-      </p>
 
       <h3 className="text-xl font-semibold mt-6 mb-3 text-gray-900 font-serif">
-        Externes Hosting
+        Vercel
       </h3>
       <p className="mb-4">
-        Diese Website wird extern gehostet. Die personenbezogenen Daten, die auf dieser Website erfasst
-        werden, werden auf den Servern des Hosters gespeichert. Hierbei kann es sich v. a. um IP-Adressen,
-        Kontaktanfragen, Meta- und Kommunikationsdaten, Vertragsdaten, Kontaktdaten, Namen, Websitezugriffe
-        und sonstige Daten, die über eine Website generiert werden, handeln.
+        Wir hosten unsere Website bei Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA.
+        Vercel ist ein Cloud-Plattform-Anbieter, der die Infrastruktur für unsere Website bereitstellt.
       </p>
       <p className="mb-4">
-        Das externe Hosting erfolgt zum Zwecke der Vertragserfüllung gegenüber unseren potenziellen und
-        bestehenden Kunden (Art. 6 Abs. 1 lit. b DSGVO) und im Interesse einer sicheren, schnellen und
-        effizienten Bereitstellung unseres Online-Angebots durch einen professionellen Anbieter (Art. 6 Abs.
-        1 lit. f DSGVO).
+        Wenn Sie unsere Website besuchen, werden automatisch Informationen in Server-Log-Dateien gespeichert,
+        die Ihr Browser übermittelt. Dies umfasst Ihre IP-Adresse, Browsertyp, Betriebssystem und Zeitpunkt des Zugriffs.
+      </p>
+      <p className="mb-4">
+        Die Nutzung von Vercel erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes
+        Interesse an einer zuverlässigen Darstellung unserer Website. Weitere Informationen:{' '}
+        <a href="https://vercel.com/legal/privacy-policy" className="text-blue-600 hover:underline" target="_blank" rel="noopener">
+          https://vercel.com/legal/privacy-policy
+        </a>
       </p>
 
       <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 font-serif">
@@ -99,12 +99,13 @@ export default function Datenschutz() {
         Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
       </p>
       <div className="bg-gray-50 p-6 rounded-lg mb-6">
-        <p className="mb-2"><strong>Beautysalon Harmonie</strong></p>
-        <p className="mb-2">[IHR NAME]</p>
-        <p className="mb-2">Musterstraße 10</p>
-        <p className="mb-4">30159 Hannover</p>
-        <p className="mb-2">Telefon: +49 (511) 123-456</p>
-        <p>E-Mail: info@harmonie-salon.de</p>
+        <p className="mb-2"><strong>Kristina & Alexandra Mastersalon</strong></p>
+        <p className="mb-2">Kristina Herold & Alexandra Saltürk</p>
+        <p className="mb-2">Limbergstraße 53</p>
+        <p className="mb-4">38518 Gifhorn</p>
+        <p className="mb-2">Telefon: +49 176 412 901 58 (Kristina)</p>
+        <p className="mb-2">Telefon: +49 173 175 8457 (Alexandra)</p>
+        <p>E-Mail: john_lidia@gmx.de</p>
       </div>
 
       <h3 className="text-xl font-semibold mt-6 mb-3 text-gray-900 font-serif">
@@ -168,18 +169,42 @@ export default function Datenschutz() {
       </p>
 
       <h3 className="text-xl font-semibold mt-6 mb-3 text-gray-900 font-serif">
-        Kontaktformular
+        Terminanfrage / Kontaktformular
       </h3>
       <p className="mb-4">
-        Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem
-        Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage
-        und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre
-        Einwilligung weiter.
+        Wenn Sie über unser Terminformular eine Anfrage stellen, werden folgende Daten erhoben:
       </p>
+      <ul className="list-disc pl-6 mb-4">
+        <li>Name</li>
+        <li>E-Mail-Adresse</li>
+        <li>Telefonnummer</li>
+        <li>Gewünschte Leistung</li>
+        <li>Ihre Nachricht (optional)</li>
+      </ul>
       <p className="mb-4">
-        Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre
-        Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher
-        Maßnahmen erforderlich ist.
+        Diese Daten werden zum Zweck der Terminvereinbarung und Bearbeitung Ihrer Anfrage verarbeitet.
+        Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung).
+      </p>
+
+      <h4 className="text-lg font-semibold mt-4 mb-2 text-gray-900">Supabase (Datenspeicherung)</h4>
+      <p className="mb-4">
+        Ihre Terminanfragen werden in einer Datenbank bei Supabase Inc., 970 Toa Payoh North #07-04,
+        Singapore 318992, gespeichert. Supabase betreibt Server in der EU (Frankfurt).
+        Die Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet und nicht an Dritte weitergegeben.
+        Weitere Informationen:{' '}
+        <a href="https://supabase.com/privacy" className="text-blue-600 hover:underline" target="_blank" rel="noopener">
+          https://supabase.com/privacy
+        </a>
+      </p>
+
+      <h4 className="text-lg font-semibold mt-4 mb-2 text-gray-900">Resend (E-Mail-Versand)</h4>
+      <p className="mb-4">
+        Für den Versand von Bestätigungs-E-Mails nutzen wir den Dienst Resend (Resend Inc., USA).
+        Dabei werden Ihre E-Mail-Adresse und Name an Resend übermittelt, um Ihnen eine Bestätigung
+        Ihrer Terminanfrage zuzusenden. Weitere Informationen:{' '}
+        <a href="https://resend.com/legal/privacy-policy" className="text-blue-600 hover:underline" target="_blank" rel="noopener">
+          https://resend.com/legal/privacy-policy
+        </a>
       </p>
 
       <h3 className="text-xl font-semibold mt-6 mb-3 text-gray-900 font-serif">
@@ -191,20 +216,48 @@ export default function Datenschutz() {
         bei uns gespeichert und verarbeitet. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
       </p>
 
-      <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mt-8">
-        <p className="text-sm text-gray-700">
-          <strong>Hinweis:</strong> Diese Datenschutzerklärung ist ein Basistemplate. Bitte passen Sie
-          diese an Ihre tatsächliche Datenverarbeitung an. Wenn Sie weitere Dienste nutzen (Google
-          Analytics, Social Media Plugins, etc.), müssen diese ergänzt werden. Lassen Sie die
-          Datenschutzerklärung im Zweifel von einem Anwalt prüfen.
-        </p>
-      </div>
+      <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 font-serif">
+        5. Externe Dienste
+      </h2>
+
+      <h3 className="text-xl font-semibold mt-6 mb-3 text-gray-900 font-serif">
+        Google Maps
+      </h3>
+      <p className="mb-4">
+        Diese Website nutzt Google Maps zur Darstellung interaktiver Karten. Google Maps wird von Google LLC,
+        1600 Amphitheatre Parkway, Mountain View, CA 94043, USA betrieben.
+      </p>
+      <p className="mb-4">
+        <strong>Google Maps wird erst nach Ihrer ausdrücklichen Einwilligung geladen.</strong> Ohne Ihre
+        Zustimmung über unseren Cookie-Banner werden keine Daten an Google übertragen.
+      </p>
+      <p className="mb-4">
+        Wenn Sie der Nutzung von Google Maps zustimmen, wird eine Verbindung zu den Servern von Google
+        hergestellt. Dabei kann Ihre IP-Adresse an Google übermittelt werden. Weitere Informationen zum
+        Umgang mit Nutzerdaten finden Sie in der Datenschutzerklärung von Google:{' '}
+        <a href="https://policies.google.com/privacy" className="text-blue-600 hover:underline" target="_blank" rel="noopener">
+          https://policies.google.com/privacy
+        </a>
+      </p>
+      <p className="mb-4">
+        Die Nutzung von Google Maps erfolgt auf Grundlage Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO.
+        Sie können Ihre Einwilligung jederzeit über die Cookie-Einstellungen widerrufen.
+      </p>
+
+      <h3 className="text-xl font-semibold mt-6 mb-3 text-gray-900 font-serif">
+        WhatsApp
+      </h3>
+      <p className="mb-4">
+        Auf unserer Website befindet sich ein Link zur Kontaktaufnahme über WhatsApp. Wenn Sie diesen
+        Link anklicken, werden Sie zu WhatsApp weitergeleitet. Die Nutzung von WhatsApp erfolgt freiwillig
+        und unterliegt den Datenschutzbestimmungen von Meta Platforms Ireland Limited:{' '}
+        <a href="https://www.whatsapp.com/legal/privacy-policy" className="text-blue-600 hover:underline" target="_blank" rel="noopener">
+          https://www.whatsapp.com/legal/privacy-policy
+        </a>
+      </p>
 
       <p className="text-sm text-gray-500 mt-8">
-        Quelle: erstellt mit dem{' '}
-        <a href="https://www.e-recht24.de" className="text-blue-600 hover:underline" target="_blank" rel="noopener">
-          Datenschutz-Generator von eRecht24
-        </a>
+        Stand: Januar 2025
       </p>
     </LegalLayout>
   )

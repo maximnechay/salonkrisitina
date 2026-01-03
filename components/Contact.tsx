@@ -24,13 +24,13 @@ const contactInfo = [
           href="tel:+4917641290158"
           className="block text-lg font-light text-gray-700 hover:text-secondary transition"
         >
-          +49 176 412 901 58
+          <span className="font-medium">Kristina:</span> +49 176 412 901 58
         </a>
         <a
           href="tel:+491731758457"
           className="block text-lg font-light text-gray-700 hover:text-secondary transition"
         >
-          +49 173 175 8457
+          <span className="font-medium">Alexandra:</span> +49 173 175 8457
         </a>
       </div>
     ),
@@ -89,7 +89,6 @@ function GoogleMap() {
         >
           Cookie-Einstellungen öffnen
         </button>
-        {/* ✅ FIX: underline добавлен для различимости ссылки не только по цвету */}
         <a
           href="https://www.google.com/maps/dir/?api=1&destination=Limbergstra%C3%9Fe+53,38518+Gifhorn"
           target="_blank"
@@ -131,7 +130,6 @@ export default function Contact() {
             <div className="space-y-10">
               {contactInfo.map((info) => (
                 <div key={info.label}>
-                  {/* ✅ FIX: text-secondary-dark для лучшего контраста */}
                   <div className="text-sm uppercase tracking-wider mb-3 text-secondary-dark flex items-center gap-2">
                     <info.icon className="w-4 h-4" />
                     {info.label}
@@ -156,7 +154,6 @@ export default function Contact() {
           </div>
 
           <div className="mt-6 text-center">
-            {/* ✅ FIX: underline для различимости ссылки */}
             <a
               href="https://www.google.com/maps/dir/?api=1&destination=Limbergstra%C3%9Fe+53,38518+Gifhorn"
               target="_blank"
