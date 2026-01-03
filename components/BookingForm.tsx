@@ -1,7 +1,8 @@
 'use client'
 
 import { useState, FormEvent } from 'react'
-import { supabase, SUPABASE_FUNCTIONS_URL } from '@/lib/supabase'
+import { supabase } from '@/lib/supabase'
+import Link from 'next/link'
 
 const services = [
   { value: '', label: 'Gewünschte Leistung' },
@@ -12,15 +13,25 @@ const services = [
   { value: 'Tönung', label: 'Tönung / Glossing' },
   { value: 'Styling', label: 'Styling / Föhnen' },
   { value: 'Pflege', label: 'Pflege / Treatment' },
+  { value: 'Brautstyling', label: 'Brautstyling' },
+  { value: 'Augenbrauen', label: 'Augenbrauen' },
+  { value: 'Wimpern', label: 'Wimpern färben' },
 ]
-
 
 export default function BookingForm() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState('')
+  const [consent, setConsent] = useState(false)
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+
+    if (!consent) {
+      setStatus('error')
+      setMessage('Bitte stimmen Sie der Datenschutzerklärung zu.')
+      return
+    }
+
     setStatus('loading')
     setMessage('Anfrage wird gesendet...')
 
@@ -35,7 +46,7 @@ export default function BookingForm() {
     }
 
     try {
-      // 1) Save to appointments table
+      // 1) Save to Supabase
       const { error } = await supabase
         .from('appointments')
         .insert([payload])
@@ -47,21 +58,22 @@ export default function BookingForm() {
         return
       }
 
-      // 2) Call edge function to send email
-      const fnRes = await fetch(`${SUPABASE_FUNCTIONS_URL}/send-booking-email`, {
+      // 2) Send emails via API route
+      const emailRes = await fetch('/api/send-booking-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       })
 
-      if (!fnRes.ok) {
-        console.error('Function error status', fnRes.status)
-        // Show success to user anyway since DB insert worked
+      if (!emailRes.ok) {
+        console.error('Email error:', emailRes.status)
+        // Continue anyway - booking was saved
       }
 
       setStatus('success')
-      setMessage('Vielen Dank! Ihre Anfrage wurde gesendet.')
+      setMessage('Vielen Dank! Ihre Anfrage wurde gesendet. Sie erhalten in Kürze eine Bestätigung per E-Mail.')
         ; (e.target as HTMLFormElement).reset()
+      setConsent(false)
     } catch (err) {
       console.error('Unexpected error:', err)
       setStatus('error')
@@ -80,7 +92,7 @@ export default function BookingForm() {
             id="name"
             type="text"
             name="name"
-            placeholder="Ihr Name"
+            placeholder="Ihr Name *"
             className="input-luxury"
             required
             autoComplete="name"
@@ -93,7 +105,7 @@ export default function BookingForm() {
             id="email"
             type="email"
             name="email"
-            placeholder="E-Mail Adresse"
+            placeholder="E-Mail Adresse *"
             className="input-luxury"
             required
             autoComplete="email"
@@ -106,7 +118,7 @@ export default function BookingForm() {
             id="phone"
             type="tel"
             name="phone"
-            placeholder="Telefonnummer"
+            placeholder="Telefonnummer *"
             className="input-luxury"
             required
             autoComplete="tel"
@@ -114,14 +126,12 @@ export default function BookingForm() {
         </div>
 
         <div>
-          {/* ✅ FIX: Добавлен label для screen readers */}
           <label htmlFor="service" className="sr-only">Gewünschte Leistung</label>
           <select
             id="service"
             name="service"
             className="input-luxury"
             required
-            aria-label="Gewünschte Leistung auswählen"
           >
             {services.map((service) => (
               <option key={service.value} value={service.value}>
@@ -136,10 +146,29 @@ export default function BookingForm() {
           <textarea
             id="message"
             name="message"
-            placeholder="Ihre Nachricht"
+            placeholder="Ihre Nachricht (optional)"
             rows={4}
             className="input-luxury resize-none"
           />
+        </div>
+
+        {/* DSGVO Consent Checkbox */}
+        <div className="flex items-start gap-3">
+          <input
+            type="checkbox"
+            id="consent"
+            checked={consent}
+            onChange={(e) => setConsent(e.target.checked)}
+            className="mt-1 w-5 h-5 rounded border-gray-300 text-secondary focus:ring-secondary cursor-pointer"
+            required
+          />
+          <label htmlFor="consent" className="text-sm text-gray-600 leading-relaxed cursor-pointer">
+            Ich habe die{' '}
+            <Link href="/datenschutz" className="text-secondary-dark underline hover:no-underline" target="_blank">
+              Datenschutzerklärung
+            </Link>{' '}
+            gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage zu. *
+          </label>
         </div>
 
         {message && (
@@ -147,7 +176,7 @@ export default function BookingForm() {
             role="status"
             aria-live="polite"
             className={`text-sm ${status === 'success' ? 'text-green-600' :
-              status === 'error' ? 'text-red-600' : 'text-gray-600'
+                status === 'error' ? 'text-red-600' : 'text-gray-600'
               }`}
           >
             {message}
@@ -162,6 +191,10 @@ export default function BookingForm() {
         >
           {status === 'loading' ? 'Wird gesendet...' : 'Anfrage senden'}
         </button>
+
+        <p className="text-xs text-gray-500 text-center">
+          * Pflichtfelder
+        </p>
       </form>
     </div>
   )
